@@ -1,20 +1,20 @@
 from flask import Flask, render_template   
 from flask import Flask, render_template, request
 
-app = Flask(__name__)             # create an app instance
+app = Flask(__name__)             
 
-@app.route("/")                   # use the home url
-def hello():                      # method called hello
-   return render_template("index.html")         # returns "hello world"
+@app.route("/")                  
+def hello():                      
+   return render_template("index.html")         
     
-@app.route("/<name>")              # route with URL variable /<name>
-def hello_name(name):              # call method hello_name
+@app.route("/Adeola")              
+def hello_name(name):              
     name = request.args.get('Adeola')
-    return "Hello "+ name          # which returns "hello + name  
+    return "Hello "+ name          
 
 @app.route("/about")
 def about():
-    name = request.args.get('Adeola') if request.args.get('name') else "Hello World!" 
+    name = request.args.get('name') if request.args.get('name') else "Hello World!" 
     return render_template("about.html", aboutName=name)   
     
 if __name__ == "__main__":        # when running python app.py
