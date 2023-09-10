@@ -7,9 +7,9 @@ app = Flask(__name__)
 def hello():                      
    return render_template("index.html")         
     
-@app.route("/Adeola")              
+@app.route("/<name>")              
 def hello_name(name):              
-    name = request.args.get('Adeola')
+    name = request.args.get('name')
     return "Hello "+ name          
 
 @app.route("/about")
